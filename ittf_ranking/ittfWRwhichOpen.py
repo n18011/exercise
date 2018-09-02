@@ -10,7 +10,7 @@ def men_women():
     男子か女子のurlを返す
     '''
     url = 'https://www.ittf.com/rankings/'
-    res = requests.get(url, verify=False)
+    res = requests.get(url)
     res.raise_for_status()
 
     soup = bs4.BeautifulSoup(res.text, 'lxml')
@@ -23,6 +23,7 @@ def men_women():
         except KeyError:
             print('キーが違います。')
             continue
+        break
 
 
 if __name__ == '__main__':
